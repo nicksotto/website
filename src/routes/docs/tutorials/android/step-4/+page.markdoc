@@ -62,8 +62,7 @@ Look for `// Add this line 👇` to find where the changes made here.
 
 ```kotlin
 object Appwrite {
-    private const val ENDPOINT = "https://cloud.appwrite.io/v1"
-    private const val PROJECT_ID = "<YOUR_PROJECT_ID>"
+    private const val PROJECT_ID = "<PROJECT_ID>"
 
     private lateinit var client: Client
     
@@ -72,7 +71,6 @@ object Appwrite {
 
     fun init(context: Context) {
         client = Client(context)
-            .setEndpoint(ENDPOINT)
             .setProject(PROJECT_ID)
 
         // Add this line 👇

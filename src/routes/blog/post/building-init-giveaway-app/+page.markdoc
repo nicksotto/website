@@ -87,9 +87,6 @@ We then entered the application directory, installed the Appwrite Web SDK and Pi
 
 ```js
 // ./src/lib/constants.js
-
-export const APPWRITE_ENDPOINT = 'https://cloud.appwrite.io/v1';
-
 export const APPWRITE_PROJECT = '<PROJECT_ID>';
 
 export const DATABASE_NAME = '<DATABASE_ID>';
@@ -103,11 +100,11 @@ After the constants were added, we could now set up the Appwrite SDK.
 // ./src/lib/appwrite.js
 
 import { Account, Client, Databases } from 'appwrite';
-import { APPWRITE_ENDPOINT, APPWRITE_PROJECT } from './constants';
+import { APPWRITE_PROJECT } from './constants';
 
 export const client = new Client();
 
-client.setEndpoint(APPWRITE_ENDPOINT).setProject(APPWRITE_PROJECT);
+client.setProject(APPWRITE_PROJECT);
 
 export const account = new Account(client);
 

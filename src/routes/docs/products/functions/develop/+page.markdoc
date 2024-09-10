@@ -268,7 +268,6 @@ Future main(final context) async {
   //    .setProject(Platform.environment['APPWRITE_FUNCTION_PROJECT_ID'])
   //    .setKey(context.req.headers['x-appwrite-key']);
 
-
   // You can log messages to the console
   context.log('Hello, Logs!');
 
