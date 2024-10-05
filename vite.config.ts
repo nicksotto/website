@@ -4,6 +4,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { enhancedImages } from '@sveltejs/enhanced-img';
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 export default defineConfig({
     plugins: [
@@ -25,10 +26,14 @@ export default defineConfig({
         }),
         ViteImageOptimizer({
             includePublic: true
+        }),
+        ViteMinifyPlugin({
+            removeAttributeQuotes: true
         })
     ],
     build: {
-        reportCompressedSize: false
+        minify: true,
+        reportCompressedSize: false,
     },
     test: {
         include: ['src/**/*.{test,spec}.{js,ts}']

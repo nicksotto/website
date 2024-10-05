@@ -1,11 +1,12 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import { Main } from '$lib/layouts';
-    import { MainFooter, FooterNav, Article } from '$lib/components';
+    import { Article, FooterNav, MainFooter } from '$lib/components';
     import { TITLE_SUFFIX } from '$routes/titles.js';
     import { DEFAULT_HOST } from '$lib/utils/metadata';
     import { onMount, tick } from 'svelte';
     import { beforeNavigate } from '$app/navigation';
+    import { AuthorCover, BlogPostCover } from '$lib/UI';
 
     export let data;
 
@@ -126,11 +127,11 @@
                         )}
                         <article class="web-feature-article mt-12">
                             <a href={featured.href} class="web-feature-article-image">
-                                <img
+                                <BlogPostCover
+                                    alt="cover"
+                                    isFeatured
                                     src={featured.cover}
                                     class="web-image-ratio-4/3"
-                                    loading="lazy"
-                                    alt="cover"
                                 />
                             </a>
                             <div class="web-feature-article-content">
@@ -149,13 +150,10 @@
                                 </p>
                                 <div class="web-author">
                                     <div class="flex items-center gap-2">
-                                        <img
-                                            class="web-author-image"
-                                            src={author?.avatar}
-                                            alt={author?.name}
-                                            loading="lazy"
-                                            width="24"
-                                            height="24"
+                                        <AuthorCover
+                                            thumbnail={true}
+                                            author={author?.name}
+                                            avatar={author?.avatar}
                                         />
                                         <div class="web-author-info">
                                             <a href={author?.href} class="text-sub-body web-link"
@@ -196,6 +194,7 @@
                                 )}
                                 {#if author && !post.draft}
                                     <Article
+                                        thumbnail
                                         title={post.title}
                                         href={post.href}
                                         cover={post.cover}
@@ -214,7 +213,7 @@
                             {#if data.currentPage > 1}
                                 <a
                                     data-sveltekit-noscroll
-                                    class="flex navigation-button"
+                                    class="navigation-button flex"
                                     href="/blog/{data.currentPage - 1}"
                                     class:navigation-button-active={!isFirstPage}
                                 >
@@ -222,7 +221,7 @@
                                     Previous
                                 </a>
                             {:else}
-                                <span class="flex navigation-button">
+                                <span class="navigation-button flex">
                                     <span class="web-icon-chevron-left" style="font-size: 20px" />
                                     Previous
                                 </span>
@@ -246,7 +245,7 @@
                             {#if data.currentPage < data.totalPages}
                                 <a
                                     data-sveltekit-noscroll
-                                    class="flex navigation-button"
+                                    class="navigation-button flex"
                                     href="/blog/{data.currentPage + 1}"
                                     class:navigation-button-active={!isLastPage}
                                 >
@@ -254,7 +253,7 @@
                                     <span class="web-icon-chevron-right" style="font-size: 20px" />
                                 </a>
                             {:else}
-                                <span class="flex navigation-button">
+                                <span class="navigation-button flex">
                                     Next
                                     <span class="web-icon-chevron-right" style="font-size: 20px" />
                                 </span>
