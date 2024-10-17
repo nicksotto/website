@@ -33,6 +33,13 @@ const config = {
     extensions: ['.markdoc', '.svelte', '.md'],
     kit: {
         adapter: nodeAdapter(),
+        csp: {
+            mode: 'auto',
+            directives: {
+                'frame-src': ['self', '*.appwrite.online'],
+                'frame-ancestors': ['none']
+            }
+        },
         version: {
             pollInterval: 60 * 1000
         },
