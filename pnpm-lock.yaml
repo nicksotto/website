@@ -75,6 +75,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.13.1
         version: 7.18.0(eslint@8.57.1)(typescript@5.6.3)
+      '@vividlemon/vite-plugin-sri':
+        specifier: ^1.2.0
+        version: 1.2.0
       analytics:
         specifier: ^0.8.14
         version: 0.8.14(@types/dlv@1.1.4)
@@ -1849,6 +1852,9 @@ packages:
 
   '@vitest/utils@1.6.0':
     resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
+
+  '@vividlemon/vite-plugin-sri@1.2.0':
+    resolution: {integrity: sha512-Y08eME0IpsCEES9yCCydxxgTBs3roj4eSxR7sz6VIB9cZDgv4gTlSP/WdAKEDBQXPKwQL0HrKFw/wtFemBArqw==}
 
   '@xmldom/xmldom@0.7.13':
     resolution: {integrity: sha512-lm2GW5PkosIzccsaZIz7tp8cPADSIlIHWDFTR1N0SzfinhhYgeIQjFMz4rYzanCScr3DqQLeomUDArp6MWKm+g==}
@@ -6156,6 +6162,10 @@ snapshots:
       estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
+
+  '@vividlemon/vite-plugin-sri@1.2.0':
+    dependencies:
+      cheerio: 1.0.0
 
   '@xmldom/xmldom@0.7.13': {}
 
